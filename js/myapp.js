@@ -355,7 +355,7 @@ $(document).ready(function(){
   function search() {
     var search = {
       bounds: map.getBounds(),
-      types: ['lodging']
+      types: ['museum']
     };
 
     places.nearbySearch(search, function(results, status) {
