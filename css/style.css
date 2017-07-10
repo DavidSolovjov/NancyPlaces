@@ -1,0 +1,58 @@
+html,
+body {
+  font-family: "Open Sans",Verdana,sans-serif;
+  height: 100%;
+  padding: 0;
+  margin: 0 auto;
+  color: #fff;
+  font-weight: bold;
+}
+
+h1 {
+  color: #525454;
+  font-size: 22px;
+  margin: 0 0 10px 0;
+  text-align: center;
+}
+
+.petit-panel {
+  border-right: 1px black  solid;
+  height: 100%;
+  text-align: center;
+}
+
+.container {
+  height: 100%;
+  position: relative;
+}
+
+#map-canvas {
+  height: 100%;
+}
+
+#resultsTable {
+  color: #fff;
+}
+
+#show-listing,
+#hide-listing {
+  border-radius: 5px;
+  background-color: #303F9F;
+  color: #fff;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.entree-boite {
+  margin: 1em;
+}
+
+.placeIcon {
+  width: 20px;
+  height: 34px;
+  margin: 4px;
+}
+.hotelIcon {
+  width: 24px;
+  height: 24px;
+}

@@ -5,11 +5,79 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <title>Project Map</title>
 </head>
 <body>
+  <div class="container">
+    <h1 id="title-page">Enjoy our Map of Awesome places</h1>
+      <div class="col-xs-3 petit-panel">
+          <input type="button" id="show-listing" value="Show Listing">
+          <input type="button" id="hide-listing" value="Hide Listing">
 
-
+          <div class="entree-boite">
+              Country:
+              <select name="country" id="country-select">
+                <option value="all">All</option>
+                <option value="au">Australia</option>
+                <option value="br">Brazil</option>
+                <option value="ca">Canada</option>
+                <option value="fr" selected>France</option>
+                <option value="ga">Gabon</option>
+                <option value="de">Germany</option>
+                <option value="mx">Mexico</option>
+                <option value="nz">New Zealand</option>
+                <option value="it">Italy</option>
+                <option value="za">South Africa</option>
+                <option value="es">Spain</option>
+                <option value="pt">Portugal</option>
+                <option value="us">U.S.A.</option>
+                <option value="uk">United Kingdom</option>
+              </select>
+          </div>
+          <div class="entree-boite" >
+              City:<input type="text" class="text" id="autocomplete-box">
+          </div>
+          <div class="entree-boite" id="filter">
+              Filter:<input type="text" class="text" id="filter-box" data-bind="value: filter_box_value, event:{ keyup: filter}">
+          </div>
+          <div id="listing">
+          <table id="resultsTable">
+            <tbody id="results">
+              <p>First name: <strong data-bind="text: filter_box_value"></strong></p>
+              <p>second name: <strong data-bind="text: essaie2"></strong></p>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col-xs-9" id="map-canvas"></div>
+  </div>
+  <div style="display: none">
+      <div id="info-content">
+        <table>
+          <tr id="iw-url-row" class="iw_table_row">
+            <td id="iw-icon" class="iw_table_icon"></td>
+            <td id="iw-url"></td>
+          </tr>
+          <tr id="iw-address-row" class="iw_table_row">
+            <td class="iw_attribute_name">Address:</td>
+            <td id="iw-address"></td>
+          </tr>
+          <tr id="iw-phone-row" class="iw_table_row">
+            <td class="iw_attribute_name">Telephone:</td>
+            <td id="iw-phone"></td>
+          </tr>
+          <tr id="iw-rating-row" class="iw_table_row">
+            <td class="iw_attribute_name">Rating:</td>
+            <td id="iw-rating"></td>
+          </tr>
+          <tr id="iw-website-row" class="iw_table_row">
+            <td class="iw_attribute_name">Website:</td>
+            <td id="iw-website"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
 
 </body>
 <script
