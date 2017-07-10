@@ -474,6 +474,8 @@ $(document).ready(function(){
 
   // Load the place information into the HTML elements used by the info window.
   function buildIWContent(place) {
+    // Create a variable for panorama object
+    var panorama;
     document.getElementById('iw-icon').innerHTML = '<img class="hotelIcon" ' +
         'src="' + place.icon + '"/>';
     document.getElementById('iw-url').innerHTML = '<b><a href="' + place.url +
@@ -519,6 +521,14 @@ $(document).ready(function(){
     } else {
       document.getElementById('iw-website-row').style.display = 'none';
     }
+
+    panorama = new google.maps.StreetViewPanorama(
+        document.getElementById('street-view'),
+        {
+          position: place.geometry.location,
+          pov: {heading: 165, pitch: 0},
+          zoom: 1
+        });
 
 }
 
