@@ -26,6 +26,10 @@ $(document).ready(function(){
       center: {lat: 46.2, lng: 2.2},
       zoom: 5
     },
+    'ga': {
+      center: {lat: 45.5, lng: -52},
+      zoom: 5
+    },
     'de': {
       center: {lat: 51.2, lng: 10.4},
       zoom: 5
@@ -458,10 +462,22 @@ $(document).ready(function(){
     }
   }
 
+    function clearToggleBounce() {
+      for (var i = 0; i < markers.length; i++) {
+        if (markers[i].animation !== null) {
+          markers[i].setAnimation(null);
+        }
+      }
+    }
+
   // Get the place details for a hotel. Show the information in an info window,
   // anchored on the marker for the hotel that the user selected.
   function showInfoWindow() {
+    // Remove all the animation if exists
+    clearToggleBounce()
     var marker = this;
+    //add a bounce animation for our marker
+    toggleBounce(marker);
     places.getDetails({placeId: marker.placeResult.place_id},
         function(place, status) {
           if (status !== google.maps.places.PlacesServiceStatus.OK) {
@@ -470,6 +486,14 @@ $(document).ready(function(){
           infoWindow.open(map, marker);
           buildIWContent(place);
         });
+  }
+
+  function toggleBounce(marker) {
+    if (marker.getAnimation() !== null) {
+      marker.setAnimation(null);
+    } else {
+      marker.setAnimation(google.maps.Animation.BOUNCE);
+    }
   }
 
   // Load the place information into the HTML elements used by the info window.
@@ -526,7 +550,7 @@ $(document).ready(function(){
         document.getElementById('street-view'),
         {
           position: place.geometry.location,
-          pov: {heading: 165, pitch: 0},
+          pov: {heading: 20, pitch: 0},
           zoom: 1
         });
 
