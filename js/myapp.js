@@ -474,7 +474,7 @@ $(document).ready(function(){
   // anchored on the marker for the hotel that the user selected.
   function showInfoWindow() {
     // Remove all the animation if exists
-    clearToggleBounce()
+    clearToggleBounce();
     var marker = this;
     //add a bounce animation for our marker
     toggleBounce(marker);
